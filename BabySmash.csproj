@@ -17,7 +17,7 @@
     <ManifestCertificateThumbprint>E4355A6B46BE61300D217B56C346651E03BEB47F</ManifestCertificateThumbprint>
     <ManifestKeyFile>private.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>App.ico</ApplicationIcon>
     <FileUpgradeFlags>
@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Shapes\BabySmashShape.cs" />
+    <Compile Include="Gujarati.cs" />
     <Compile Include="WordFinder.cs" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
@@ -260,6 +261,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Strings\gu-IN.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Strings\ru-RU.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -331,6 +335,40 @@
     <Folder Include="Resources\Voices\Male\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ક.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ૐ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ઋ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ખ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ગ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ઘ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ચ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\છ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\જ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ઝ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ટ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ઠ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ડ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ઢ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ણ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ત.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\થ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\દ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ધ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ન.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\પ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ફ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\બ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ભ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\મ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ય.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ર.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\લ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ળ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\વ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\શ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\ષ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\સ.wav" />
+    <EmbeddedResource Include="Resources\Sounds\Gujarati\હ.wav" />
     <Content Include="Words.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

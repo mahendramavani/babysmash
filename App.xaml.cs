@@ -52,6 +52,7 @@ namespace BabySmash
             {
                 bool alt = (WinForms.Control.ModifierKeys & Keys.Alt) != 0;
                 bool control = (WinForms.Control.ModifierKeys & Keys.Control) != 0;
+                bool shift = (WinForms.Control.ModifierKeys & Keys.Shift) != 0;
 
                 int vkCode = Marshal.ReadInt32(lParam);
                 Keys key = (Keys)vkCode;
@@ -62,7 +63,7 @@ namespace BabySmash
                     return (IntPtr)1; // Handled.
                 }
 
-                if (!AllowKeyboardInput(alt, control, key))
+                if (!AllowKeyboardInput(alt, control, shift, key))
                 {
                     return (IntPtr)1; // Handled.
                 }
@@ -73,7 +74,7 @@ namespace BabySmash
 
         /// <summary>Determines whether the specified keyboard input should be allowed to be processed by the system.</summary>
         /// <remarks>Helps block unwanted keys and key combinations that could exit the app, make system changes, etc.</remarks>
-        public static bool AllowKeyboardInput(bool alt, bool control, Keys key)
+        public static bool AllowKeyboardInput(bool alt, bool control, bool shift, Keys key)
         {
             // Disallow various special keys.
             if (key <= Keys.Back || key == Keys.None ||
@@ -102,7 +103,7 @@ namespace BabySmash
                 (control && key == Keys.Escape))
             {
                 return false;
-            }
+            }                      
 
             // Allow anything else (like letters, numbers, spacebar, braces, and so on).
             return true;

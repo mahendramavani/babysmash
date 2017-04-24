@@ -28,7 +28,7 @@ namespace BabySmash
             this.controller = c;
             this.DataContext = controller;
             InitializeComponent();
-
+                        
             //ResetCanvas();
         }
 

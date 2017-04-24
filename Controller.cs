@@ -50,7 +50,7 @@ namespace BabySmash
         private WordFinder wordFinder = new WordFinder("Words.txt");
 
         /// <summary>Prevents a default instance of the Controller class from being created.</summary>
-        private Controller() { }
+        protected Controller() { }
 
         public static Controller Instance
         {
@@ -185,6 +185,10 @@ namespace BabySmash
 
         public void ProcessKey(FrameworkElement uie, KeyEventArgs e)
         {
+            //Ignore keyup for shift (required to support Indic script)
+            if (e.Key == Key.LeftShift || e.Key == Key.RightShift)
+                return;
+
             if (uie.IsMouseCaptured)
             {
                 uie.ReleaseMouseCapture();
@@ -243,7 +247,7 @@ namespace BabySmash
         [DllImport("user32.dll")]
         public static extern uint MapVirtualKey(uint uCode, MapType uMapType);
 
-        private static char TryGetLetter(Key key)
+        protected static char TryGetLetter(Key key)
         {
             char ch = ' ';
 
@@ -271,6 +275,12 @@ namespace BabySmash
                         ch = stringBuilder[0];
                         break;
                     }
+            }
+
+            if (Settings.Default.SwitchToGujarati)
+            {
+                var shift = Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
+                ch = Gujarati.Map(shift, virtualKey);
             }
             return ch;
         }
@@ -394,7 +404,20 @@ namespace BabySmash
             {
                 if (template.Letter != null && template.Letter.Length == 1 && Char.IsLetterOrDigit(template.Letter[0]))
                 {
-                    SpeakString(template.Letter);
+                    if (Settings.Default.SwitchToGujarati)
+                    {
+                        var charValue = template.Letter[0];
+                        if (Gujarati.IsSupportedChar(charValue))
+                        {
+                            try
+                            {
+                                Win32Audio.PlayWavResourceYield(string.Format("Gujarati.{0}.wav", charValue));
+                            }
+                            catch { }                            
+                        }
+                    }
+                    else
+                        SpeakString(template.Letter);
                 }
                 else
                 {
@@ -411,6 +434,11 @@ namespace BabySmash
             CultureInfo keyboardLanguage = System.Windows.Forms.InputLanguage.CurrentInputLanguage.Culture;
             string culture = keyboardLanguage.Name;
             string path = $@"Resources\Strings\{culture}.json";
+
+            //Explicit Override for Gujarati
+            //if (Settings.Default.SwitchToGujarati)
+              //  path = @"Resources\Strings\gu-IN.json";
+
             string path2 = @"Resources\Strings\en-EN.json";
             string jsonConfig = null;
             if (File.Exists(path))

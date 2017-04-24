@@ -24,6 +24,7 @@
     
     <Window.InputBindings>
         <KeyBinding Gesture="CTRL+ALT+SHIFT+O" Command="{x:Static ApplicationCommands.Properties}" />
+        <KeyBinding Gesture="ALT+TAB" Command="{x:Static ApplicationCommands.Properties}" />
     </Window.InputBindings>
 
     <Window.Triggers>

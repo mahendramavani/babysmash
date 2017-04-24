@@ -154,5 +154,23 @@ namespace BabySmash.Properties {
                 this["TransparentBackground"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SwitchToGujarati
+        {
+            get
+            {
+                return ((bool)(this["SwitchToGujarati"]));
+            }
+            set
+            {
+                this["SwitchToGujarati"] = value;
+
+                if (value)
+                    FontFamily = "Nirmala UI";
+            }
+        }
     }
 }

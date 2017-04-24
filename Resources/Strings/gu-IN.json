@@ -1,0 +1,21 @@
+﻿{
+  "Circle": "Vartul",
+  "Oval": "Valay",
+  "Rectangle": "Lambchhoras",
+  "Hexagon": "ashtakon",
+  "Trapezoid": "Trapezoid",
+  "Star": "Taro",
+  "Square": "Chhoras",
+  "Triangle": "Trikon",
+  "Heart": "Hraday",
+
+  "Red": "Laal",
+  "Blue": "Vaadali",
+  "Yellow": "Pilo",
+  "Green": "Lilo",
+  "Purple": "Jambli",
+  "Pink": "Gulabi",
+  "Orange": "Naaranghi",
+  "Tan": "Tan",
+  "Gray": "Bhooro"
+}
